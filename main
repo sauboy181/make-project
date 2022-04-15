@@ -10,7 +10,7 @@ class Game:
         # general setup
         pygame.init() #Initiate pygame
         self.screen = pygame.display.set_mode((WIDTH, HEIGTH)) #Initiate Surface
-        pygame.display.set_caption("Zelda")
+        pygame.display.set_caption("Maze Runner")
         self.clock = pygame.time.Clock() #Clock
         
         self.level = Level()
