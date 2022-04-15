@@ -22,7 +22,7 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-            self.screen.fill("black") # Screen of black color
+            self.screen.fill('light green') # Screen of black color
             self.level.run()
             pygame.display.update() # Updating screen
             self.clock.tick(FPS) # FPS
