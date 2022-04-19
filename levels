@@ -35,6 +35,8 @@ class Level:  # Contain all the sprites + interactions
         self.visible_sprites.custom_draw(self.player)  # Display visible sprites
         self.visible_sprites.update()
         # debug(self.player.direction) #Displays the [x,y] of the player
+        # debug(self.player.status) #Displays the status of the player
+
 
 
 class YSortCameraGroup(pygame.sprite.Group):
