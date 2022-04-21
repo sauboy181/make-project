@@ -1,5 +1,5 @@
 import pygame, sys 
-from mapsetup import * # import everything from settings
+from settings import * # import everything from settings
 from levels import Levels
 from debug import debug
 
