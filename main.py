@@ -1,6 +1,6 @@
 import pygame, sys 
 from settings import * # import everything from settings
-from levels import Levels
+from level import Level
 from debug import debug
 
 
@@ -13,7 +13,7 @@ class Game:
         pygame.display.set_caption("Maze Runner")
         self.clock = pygame.time.Clock() #clock
         
-        self.level = Levels()
+        self.level = Level()
 
     def run(self):
         while True:
