@@ -19,7 +19,7 @@ class Level:  # Contain all the sprites + interactions
         self.create_map()
 
     def create_map(self):
-        for row_index, row in enumerate(WORLD_MAP):  # Each row, know the index
+        for row_index, row in enumerate(GAME_MAP):  # Each row, know the index
             for col_index, col in enumerate(row):
                 x = col_index * TILESIZE  # X position
                 y = row_index * TILESIZE  # Y position
