@@ -2,7 +2,7 @@
 HEIGHT   = 850
 WIDTH    = 1440
 FPS      = 65
-TILESIZE = 80
+TILESIZE = 85
 
 GAME_MAP = [
 ['x','x','x','x','x','x','x','x'], 
