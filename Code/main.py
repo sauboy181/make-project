@@ -1,5 +1,5 @@
 import pygame, sys 
-from settings import * #Import everything from settings
+from settings import * # import everything from settings
 from level import Level
 from debug import debug
 
@@ -9,9 +9,9 @@ class Game:
 
         # general setup
         pygame.init() #Initiate pygame
-        self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) #Initiate Surface
-        pygame.display.set_caption("Zelda")
-        self.clock = pygame.time.Clock() #Clock
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
+        pygame.display.set_caption("Maze Runner")
+        self.clock = pygame.time.Clock() #clock
         
         self.level = Level()
 
@@ -22,9 +22,9 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-            self.screen.fill("light green") # Screen of black color
+            self.screen.fill('light green') # light green background
             self.level.run()
-            pygame.display.update() # Updating screen
+            pygame.display.update() # updating screen
             self.clock.tick(FPS) # FPS
 
 

@@ -5,7 +5,7 @@ from support import import_folder
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacle_sprites):
         super().__init__(groups)
-        self.image = pygame.image.load("../graphics/test/knight1.png").convert_alpha()
+        self.image = pygame.image.load("../graphics/test/deadpool.png").convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
         self.hitbox = self.rect.inflate(0,-26)
 
@@ -73,13 +73,13 @@ class Player(pygame.sprite.Sprite):
             # Attack input
             if keys[pygame.K_SPACE]:
                 self.attacking = True
-                self.attack_time = pygame.time.get_ticks()
+                self.attack_time = pygame.time.get_ticks
                 print("attack")
 
             # Magic input
-            if keys[pygame.K_LSHIFT]:
+            if keys[pygame.K_1]:
                 self.attacking = True
-                self.attack_time = pygame.time.get_ticks()
+                self.attack_time = pygame.time.get_ticks
                 print("magic")
 
     def get_status(self):
