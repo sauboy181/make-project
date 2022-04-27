@@ -2,7 +2,7 @@ import pygame
 from settings import *
 from support import import_folder
 
-class Player2(pygame.sprite.Sprite):
+class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacle_sprites):
         super().__init__(groups)
         self.image = pygame.image.load("../graphics/test/knight1.png").convert_alpha()
