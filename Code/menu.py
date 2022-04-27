@@ -78,7 +78,7 @@ def play():
                                     pygame.display.set_caption("Maze Runner")
                                     self.clock = pygame.time.Clock() #clock
                                     
-                                    self.level = Level()
+                                    self.level = Level2()
 
                                 def run(self):
                                     while True:
