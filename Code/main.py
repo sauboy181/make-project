@@ -6,6 +6,7 @@ import pygame, sys
 from settings import * # import everything from settings
 from level import Level
 from level2 import Level2
+from level3 import Level3
 from debug import debug
 
 pygame.init()
@@ -201,7 +202,7 @@ def play():
                                     pygame.display.set_caption("Maze Runner")
                                     self.clock = pygame.time.Clock() #clock
                                     
-                                    self.level = Level()
+                                    self.level = Level3()
 
                                 def run(self):
                                     while True:
@@ -232,7 +233,7 @@ def play():
                                     pygame.display.set_caption("Maze Runner")
                                     self.clock = pygame.time.Clock() #clock
                                     
-                                    self.level = Level()
+                                    self.level = Level3()
 
                                 def run(self):
                                     while True:
