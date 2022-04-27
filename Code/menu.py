@@ -5,6 +5,7 @@ from button import Button
 import pygame, sys 
 from settings import * # import everything from settings
 from level import Level
+from level2 import Level2
 from debug import debug
 
 pygame.init()
@@ -95,6 +96,7 @@ def play():
                             if __name__ == "__main__":  
                                 game = Game()
                                 game.run()
+
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if CHOOSE_MAGE.checkForInput(PLAY_MOUSE_POS):
                             
@@ -107,7 +109,7 @@ def play():
                                     pygame.display.set_caption("Maze Runner")
                                     self.clock = pygame.time.Clock() #clock
                                     
-                                    self.level = Level()
+                                    self.level = Level2()
 
                                 def run(self):
                                     while True:
@@ -125,6 +127,7 @@ def play():
                             if __name__ == "__main__":  
                                 game = Game()
                                 game.run()
+
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if CHOOSE_KNIGHT_IMAGE.checkForInput(PLAY_MOUSE_POS):
                             
@@ -155,6 +158,7 @@ def play():
                             if __name__ == "__main__":  
                                 game = Game()
                                 game.run()
+
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if CHOOSE_KNIGHT.checkForInput(PLAY_MOUSE_POS):
                             
@@ -215,6 +219,7 @@ def play():
                             if __name__ == "__main__":  
                                 game = Game()
                                 game.run()
+
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if CHOOSE_ROGUE.checkForInput(PLAY_MOUSE_POS):
                             
