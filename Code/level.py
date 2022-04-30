@@ -1,9 +1,8 @@
 import pygame
 from settings import *
-from tile import Tile
+from tile import Tile, Key
 from player import Player
 from debug import debug
-
 
 class Level:  # Contain all the sprites + interactions
     def __init__(self):
@@ -14,10 +13,13 @@ class Level:  # Contain all the sprites + interactions
         # sprite group setup
         self.visible_sprites = YSortCameraGroup()  # Will be drawin in screen (Player/Map/Obstacle)
         self.obstacle_sprites = pygame.sprite.Group()  # Can collide with player
+        self.player = pygame.sprite.Group()
+        self.win_sprites = pygame.sprite.Group()  # Can collide with player
 
         # sprite setup
         self.create_map()
 
+    
     def create_map(self):
         for row_index, row in enumerate(GAME_MAP):  # Each row, know the index
             for col_index, col in enumerate(row):
@@ -26,17 +28,16 @@ class Level:  # Contain all the sprites + interactions
                 if col == "x":  # Set up a certain kind of sprite
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "p":
-                    self.player = Player(
-                        (x, y), [self.visible_sprites], self.obstacle_sprites
-                    )
-
+                    self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites, self.win_sprites)
+                if col == "z":
+                    self.win_sprites = Key((x, y), [self.visible_sprites, self.win_sprites])
+                    
     def run(self):
         # update and draw the game
         self.visible_sprites.custom_draw(self.player)  # Display visible sprites
         self.visible_sprites.update()
         # debug(self.player.direction) #Displays the [x,y] of the player
         # debug(self.player.status) #Displays the status of the player
-
 
 
 class YSortCameraGroup(pygame.sprite.Group):
@@ -58,8 +59,8 @@ class YSortCameraGroup(pygame.sprite.Group):
     def custom_draw(self, player):
 
         # getting the offset of the player
-        self.offset.x = player.rect.centerx - self.half_width  #
-        self.offset.y = player.rect.centery - self.half_height  #
+        self.offset.x = player.rect.centerx - self.half_width  
+        self.offset.y = player.rect.centery - self.half_height  
 
         for sprite in sorted(self.sprites(), key = lambda sprite:sprite.rect.centery):
             offset_pos = sprite.rect.topleft - self.offset
