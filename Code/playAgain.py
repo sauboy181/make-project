@@ -40,15 +40,11 @@ def play_again():
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if PLAY_AGAIN.checkForInput(PLAY_MOUSE_POS):
                             main_menu()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
                         if QUIT.checkForInput(PLAY_MOUSE_POS):
-                            main_menu()
+                            pygame.quit()
+                            sys.exit()
                     
         pygame.display.update()
-    
-
-
-
 
 def main_menu():
     while True:
