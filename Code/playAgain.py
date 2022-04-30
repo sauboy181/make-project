@@ -1,6 +1,7 @@
 from turtle import bgcolor
 import pygame, sys
 from button import Button
+from main import main_menu()
 
 pygame.init()
 
