@@ -9,6 +9,7 @@ from level2 import Level2
 from level3 import Level3
 from debug import debug
 
+
 pygame.init()
 
 SCREEN = pygame.display.set_mode((1440,850))
@@ -19,6 +20,42 @@ BG = pygame.image.load("assets/Background.png")
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("assets/font.ttf", size)
 
+def get_font(size): # Returns Press-Start-2P in the desired size
+    return pygame.font.Font("assets/font.ttf", size)
+            
+def play_again():
+    while True:
+        PLAY_MOUSE_POS = pygame.mouse.get_pos()
+
+        SCREEN.fill("black") 
+
+        PLAY_TEXT = get_font(45).render("Play again?", True, "White")
+        PLAY_RECT = PLAY_TEXT.get_rect(center=(730,180))
+        SCREEN.blit(PLAY_TEXT, PLAY_RECT)
+        PLAY_AGAIN = Button(image=None, pos=(500, 450), 
+            text_input="Yes", font=get_font(70), base_color="White", hovering_color="green")
+        QUIT = Button(image=None, pos=(950, 450), 
+            text_input="No", font=get_font(70), base_color="White", hovering_color="red")
+
+        PLAY_AGAIN.changeColor(PLAY_MOUSE_POS)
+        PLAY_AGAIN.update(SCREEN)
+        QUIT.changeColor(PLAY_MOUSE_POS)
+        QUIT.update(SCREEN)
+            
+        # assigning instructions for button selection
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if PLAY_AGAIN.checkForInput(PLAY_MOUSE_POS):
+                    main_menu()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if QUIT.checkForInput(PLAY_MOUSE_POS):
+                        pygame.quit()
+                        sys.exit()                    
+            pygame.display.update()
+            
 def play():
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
@@ -80,19 +117,28 @@ def play():
                                     self.clock = pygame.time.Clock() #clock
                                     
                                     self.level = Level2()
+                                    
+                                    #Timer 
+                                    self.time = pygame.time.get_ticks()
+                                    self.time = 0
 
                                 def run(self):
+                                    
                                     while True:
                                         for event in pygame.event.get():
                                             if event.type == pygame.QUIT:
                                                 pygame.quit()
                                                 sys.exit()
 
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
+                                        self.currenttime = pygame.time.get_ticks()
 
+                                        if self.currenttime - self.time < 10000:
+                                            self.screen.fill('light green') # light green background
+                                            self.level.run()
+                                            pygame.display.update() # updating screen
+                                            self.clock.tick(FPS) # FPS
+                                        else:
+                                            play_again()       
 
                             if __name__ == "__main__":  
                                 game = Game()
@@ -100,7 +146,6 @@ def play():
 
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if CHOOSE_MAGE.checkForInput(PLAY_MOUSE_POS):
-                            
                             class Game:
                                 def __init__(self):
 
@@ -111,19 +156,29 @@ def play():
                                     self.clock = pygame.time.Clock() #clock
                                     
                                     self.level = Level2()
+                                    
+                                    #Timer 
+                                    self.time = pygame.time.get_ticks()
+                                    self.time = 0
 
                                 def run(self):
+                                    
                                     while True:
                                         for event in pygame.event.get():
                                             if event.type == pygame.QUIT:
                                                 pygame.quit()
                                                 sys.exit()
 
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
+                                        self.currenttime = pygame.time.get_ticks()
 
+                                        if self.currenttime - self.time < 10000:
+                                            self.screen.fill('light green') # light green background
+                                            self.level.run()
+                                            pygame.display.update() # updating screen
+                                            self.clock.tick(FPS) # FPS
+
+                                        else:
+                                            play_again       
 
                             if __name__ == "__main__":  
                                 game = Game()
@@ -143,6 +198,7 @@ def play():
                                     
                                     self.level = Level()
 
+
                                 def run(self):
                                     while True:
                                         for event in pygame.event.get():
@@ -154,7 +210,6 @@ def play():
                                         self.level.run()
                                         pygame.display.update() # updating screen
                                         self.clock.tick(FPS) # FPS
-
 
                             if __name__ == "__main__":  
                                 game = Game()
@@ -253,7 +308,7 @@ def play():
                                 game.run()
                 
         pygame.display.update()
-    
+        
 def main_menu():
     while True:
         SCREEN.blit(BG, (0, 0))
