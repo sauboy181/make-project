@@ -31,19 +31,19 @@ def play():
         
         # character selection page button setup
         CHOOSE_MAGE_IMAGE = Button(image=pygame.image.load("assets/mage.png"), pos=(400, 350), 
-                            text_input="", font=get_font(30), base_color="White", hovering_color="light green")
+            text_input="", font=get_font(30), base_color="White", hovering_color="light green")
         CHOOSE_MAGE = Button(image=None, pos=(360, 550), 
-                            text_input="MAGE", font=get_font(35), base_color="White", hovering_color="light green")
+            text_input="MAGE", font=get_font(35), base_color="White", hovering_color="light green")
         CHOOSE_KNIGHT_IMAGE = Button(image=pygame.image.load("assets/knight.png"), pos=(780, 350), 
-                            text_input="", font=get_font(30), base_color="White", hovering_color="light green")
+            text_input="", font=get_font(30), base_color="White", hovering_color="light green")
         CHOOSE_KNIGHT = Button(image=None, pos=(740, 550), 
-                            text_input="KNIGHT", font=get_font(35), base_color="White", hovering_color="light green")
+            text_input="KNIGHT", font=get_font(35), base_color="White", hovering_color="light green")
         CHOOSE_ROGUE_IMAGE = Button(image=pygame.image.load("assets/rogue.png"), pos=(1160, 350), 
-                            text_input="", font=get_font(30), base_color="White", hovering_color="light green")
+            text_input="", font=get_font(30), base_color="White", hovering_color="light green")
         CHOOSE_ROGUE = Button(image=None, pos=(1120, 550), 
-                            text_input="ROGUE", font=get_font(35), base_color="White", hovering_color="light green")
+            text_input="ROGUE", font=get_font(35), base_color="White", hovering_color="light green")
         PLAY_BACK = Button(image=None, pos=(740, 750), 
-                            text_input="BACK", font=get_font(35), base_color="White", hovering_color="light green")
+            text_input="BACK", font=get_font(35), base_color="White", hovering_color="light green")
 
         PLAY_BACK.changeColor(PLAY_MOUSE_POS)
         PLAY_BACK.update(SCREEN)
@@ -62,197 +62,109 @@ def play():
 
         # assigning instructions for button selection
         for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        pygame.quit()
-                        sys.exit()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if PLAY_BACK.checkForInput(PLAY_MOUSE_POS):
-                            main_menu()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if CHOOSE_MAGE_IMAGE.checkForInput(PLAY_MOUSE_POS):
-                            class Game:
-                                def __init__(self):
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if PLAY_BACK.checkForInput(PLAY_MOUSE_POS):
+                    main_menu()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if CHOOSE_MAGE_IMAGE.checkForInput(PLAY_MOUSE_POS) or CHOOSE_MAGE.checkForInput(PLAY_MOUSE_POS):
+                    class Game:
+                        def __init__(self):
 
-                                    # general setup
-                                    pygame.init() #Initiate pygame
-                                    self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
-                                    pygame.display.set_caption("Maze Runner")
-                                    self.clock = pygame.time.Clock() #clock
-                                    
-                                    self.level = Level2()
-
-                                def run(self):
-                                    while True:
-                                        for event in pygame.event.get():
-                                            if event.type == pygame.QUIT:
-                                                pygame.quit()
-                                                sys.exit()
-
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
-
-
-                            if __name__ == "__main__":  
-                                game = Game()
-                                game.run()
-
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if CHOOSE_MAGE.checkForInput(PLAY_MOUSE_POS):
+                            # general setup
+                            pygame.init() #Initiate pygame
+                            self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
+                            pygame.display.set_caption("Maze Runner")
+                            self.clock = pygame.time.Clock() #clock
                             
-                            class Game:
-                                def __init__(self):
+                            self.level = Level2()
 
-                                    # general setup
-                                    pygame.init() #Initiate pygame
-                                    self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
-                                    pygame.display.set_caption("Maze Runner")
-                                    self.clock = pygame.time.Clock() #clock
-                                    
-                                    self.level = Level2()
+                        def run(self):
+                            while True:
+                                for event in pygame.event.get():
+                                    if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
 
-                                def run(self):
-                                    while True:
-                                        for event in pygame.event.get():
-                                            if event.type == pygame.QUIT:
-                                                pygame.quit()
-                                                sys.exit()
-
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
+                                self.screen.fill('light green') # light green background
+                                self.level.run()
+                                pygame.display.update() # updating screen
+                                self.clock.tick(FPS) # FPS
 
 
-                            if __name__ == "__main__":  
-                                game = Game()
-                                game.run()
+                    if __name__ == "__main__":  
+                        game = Game()
+                        game.run()
 
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if CHOOSE_KNIGHT_IMAGE.checkForInput(PLAY_MOUSE_POS):
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if CHOOSE_KNIGHT_IMAGE.checkForInput(PLAY_MOUSE_POS) or CHOOSE_KNIGHT.checkForInput(PLAY_MOUSE_POS):
+                    
+                    class Game:
+                        def __init__(self):
+
+                            # general setup
+                            pygame.init() #Initiate pygame
+                            self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
+                            pygame.display.set_caption("Maze Runner")
+                            self.clock = pygame.time.Clock() #clock
                             
-                            class Game:
-                                def __init__(self):
+                            self.level = Level()
 
-                                    # general setup
-                                    pygame.init() #Initiate pygame
-                                    self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
-                                    pygame.display.set_caption("Maze Runner")
-                                    self.clock = pygame.time.Clock() #clock
-                                    
-                                    self.level = Level()
+                        def run(self):
+                            while True:
+                                for event in pygame.event.get():
+                                    if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
 
-                                def run(self):
-                                    while True:
-                                        for event in pygame.event.get():
-                                            if event.type == pygame.QUIT:
-                                                pygame.quit()
-                                                sys.exit()
-
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
+                                self.screen.fill('light green') # light green background
+                                self.level.run()
+                                pygame.display.update() # updating screen
+                                self.clock.tick(FPS) # FPS
 
 
-                            if __name__ == "__main__":  
-                                game = Game()
-                                game.run()
+                    if __name__ == "__main__":  
+                        game = Game()
+                        game.run()
 
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if CHOOSE_KNIGHT.checkForInput(PLAY_MOUSE_POS):
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if CHOOSE_ROGUE_IMAGE.checkForInput(PLAY_MOUSE_POS) or CHOOSE_ROGUE.checkForInput(PLAY_MOUSE_POS):
+                    
+                    class Game:
+                        def __init__(self):
+
+                            # general setup
+                            pygame.init() #Initiate pygame
+                            self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
+                            pygame.display.set_caption("Maze Runner")
+                            self.clock = pygame.time.Clock() #clock
                             
-                            class Game:
-                                def __init__(self):
+                            self.level = Level3()
 
-                                    # general setup
-                                    pygame.init() #Initiate pygame
-                                    self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
-                                    pygame.display.set_caption("Maze Runner")
-                                    self.clock = pygame.time.Clock() #clock
-                                    
-                                    self.level = Level()
+                        def run(self):
+                            while True:
+                                for event in pygame.event.get():
+                                    if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
 
-                                def run(self):
-                                    while True:
-                                        for event in pygame.event.get():
-                                            if event.type == pygame.QUIT:
-                                                pygame.quit()
-                                                sys.exit()
-
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
+                                self.screen.fill('light green') # light green background
+                                self.level.run()
+                                pygame.display.update() # updating screen
+                                self.clock.tick(FPS) # FPS
 
 
-                            if __name__ == "__main__":  
-                                game = Game()
-                                game.run()
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if CHOOSE_ROGUE_IMAGE.checkForInput(PLAY_MOUSE_POS):
-                            
-                            class Game:
-                                def __init__(self):
-
-                                    # general setup
-                                    pygame.init() #Initiate pygame
-                                    self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
-                                    pygame.display.set_caption("Maze Runner")
-                                    self.clock = pygame.time.Clock() #clock
-                                    
-                                    self.level = Level3()
-
-                                def run(self):
-                                    while True:
-                                        for event in pygame.event.get():
-                                            if event.type == pygame.QUIT:
-                                                pygame.quit()
-                                                sys.exit()
-
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
+                    if __name__ == "__main__":  
+                        game = Game()
+                        game.run()
 
 
-                            if __name__ == "__main__":  
-                                game = Game()
-                                game.run()
-
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if CHOOSE_ROGUE.checkForInput(PLAY_MOUSE_POS):
-                            
-                            class Game:
-                                def __init__(self):
-
-                                    # general setup
-                                    pygame.init() #Initiate pygame
-                                    self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
-                                    pygame.display.set_caption("Maze Runner")
-                                    self.clock = pygame.time.Clock() #clock
-                                    
-                                    self.level = Level3()
-
-                                def run(self):
-                                    while True:
-                                        for event in pygame.event.get():
-                                            if event.type == pygame.QUIT:
-                                                pygame.quit()
-                                                sys.exit()
-
-                                        self.screen.fill('light green') # light green background
-                                        self.level.run()
-                                        pygame.display.update() # updating screen
-                                        self.clock.tick(FPS) # FPS
 
 
-                            if __name__ == "__main__":  
-                                game = Game()
-                                game.run()
-                
         pygame.display.update()
+
     
 def main_menu():
     while True:
