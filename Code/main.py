@@ -40,7 +40,7 @@ class Level:  # Contain all the sprites + interactions
                 x = col_index * TILESIZE  # X position
                 y = row_index * TILESIZE  # Y position
                 if col == "x":  # Set up a certain kind of sprite
-                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites]
+                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "y":
                     Tile1((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "p":
@@ -76,6 +76,8 @@ class Level2:  # Contain all the sprites + interactions
                 y = row_index * TILESIZE  # Y position
                 if col == "x":  # Set up a certain kind of sprite
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "y":
+                    Tile1((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "p":
                     self.player2 = Player2(
                         (x, y), [self.visible_sprites], self.obstacle_sprites, self.win_sprites
@@ -111,6 +113,8 @@ class Level3:  # Contain all the sprites + interactions
                 y = row_index * TILESIZE  # Y position
                 if col == "x":  # Set up a certain kind of sprite
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "y":
+                    Tile1((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "p":
                     self.player3 = Player3(
                         (x, y), [self.visible_sprites], self.obstacle_sprites, self.win_sprites
