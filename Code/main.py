@@ -7,7 +7,7 @@ from button import Button
 from debug import debug
 from settings import *
 from support import import_folder
-from tile import Key, Tile
+from tile import *
 
 SCREEN = pygame.display.set_mode((1440,850))
 pygame.display.set_caption("Menu")
