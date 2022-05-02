@@ -538,7 +538,7 @@ class YSortCameraGroup(pygame.sprite.Group):
         for sprite in sorted(self.sprites(), key = lambda sprite:sprite.rect.centery):
             offset_pos = sprite.rect.topleft - self.offset
             self.display_surface.blit(sprite.image, offset_pos)
-
+              
 def play():
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
@@ -597,9 +597,11 @@ def play():
                             pygame.init() #Initiate pygame
                             self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
                             pygame.display.set_caption("Maze Runner")
-                            self.clock = pygame.time.Clock() #clock
-                            
+                            self.clock = pygame.time.Clock() #clock       
+
                             self.level = Level2()
+
+                            self.time = pygame.time.get_ticks()
 
                         def run(self):
                             while True:
@@ -610,17 +612,21 @@ def play():
 
                                 self.screen.fill('light green') # light green background
                                 self.level.run()
-                                pygame.display.update() # updating screen
                                 self.clock.tick(FPS) # FPS
-
-
+                                
+                                self.passed_time = pygame.time.get_ticks() - self.time
+                                self.timer_text = get_font(20).render(str(self.passed_time/1000), True, "#000000")
+                                self.timer_rect = self.timer_text.get_rect(center=(100,25))
+                                SCREEN.blit(self.timer_text,self.timer_rect)
+                                pygame.display.update() # updating screen
+                                
                     if __name__ == "__main__":  
                         game = Game()
                         game.run()
 
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if CHOOSE_KNIGHT_IMAGE.checkForInput(PLAY_MOUSE_POS) or CHOOSE_KNIGHT.checkForInput(PLAY_MOUSE_POS):
-                    
                     class Game:
                         def __init__(self):
 
@@ -629,8 +635,9 @@ def play():
                             self.screen = pygame.display.set_mode((WIDTH, HEIGHT)) # initiate surface
                             pygame.display.set_caption("Maze Runner")
                             self.clock = pygame.time.Clock() #clock
-                            
                             self.level = Level()
+
+                            self.time = pygame.time.get_ticks()
 
                         def run(self):
                             while True:
@@ -641,9 +648,13 @@ def play():
 
                                 self.screen.fill('light green') # light green background
                                 self.level.run()
-                                pygame.display.update() # updating screen
                                 self.clock.tick(FPS) # FPS
-
+                                
+                                self.passed_time = pygame.time.get_ticks() - self.time
+                                self.timer_text = get_font(20).render(str(self.passed_time/1000), True, "#000000")
+                                self.timer_rect = self.timer_text.get_rect(center=(100,25))
+                                SCREEN.blit(self.timer_text,self.timer_rect)
+                                pygame.display.update() # updating screen
 
                     if __name__ == "__main__":  
                         game = Game()
@@ -651,7 +662,6 @@ def play():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if CHOOSE_ROGUE_IMAGE.checkForInput(PLAY_MOUSE_POS) or CHOOSE_ROGUE.checkForInput(PLAY_MOUSE_POS):
-                    
                     class Game:
                         def __init__(self):
 
@@ -662,6 +672,7 @@ def play():
                             self.clock = pygame.time.Clock() #clock
                             
                             self.level = Level3()
+                            self.time = pygame.time.get_ticks()
 
                         def run(self):
                             while True:
@@ -672,16 +683,19 @@ def play():
 
                                 self.screen.fill('light green') # light green background
                                 self.level.run()
-                                pygame.display.update() # updating screen
                                 self.clock.tick(FPS) # FPS
-
+                                
+                                self.passed_time = pygame.time.get_ticks() - self.time
+                                self.timer_text = get_font(20).render(str(self.passed_time/1000), True, "#000000")
+                                self.timer_rect = self.timer_text.get_rect(center=(100,25))
+                                SCREEN.blit(self.timer_text,self.timer_rect)
+                                pygame.display.update() # updating screen
 
                     if __name__ == "__main__":  
                         game = Game()
                         game.run()
 
         pygame.display.update()
-
 def main_menu():
 
     while True:
