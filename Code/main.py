@@ -734,14 +734,12 @@ def play_again():
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
 
-        SCREEN.fill("black") 
-
-        PLAY_TEXT = get_font(45).render("Play again?", True, "White")
-        PLAY_RECT = PLAY_TEXT.get_rect(center=(730,180))
+        PLAY_TEXT = get_font(60).render("Play again?", True, "White")
+        PLAY_RECT = PLAY_TEXT.get_rect(center=(730,250))
         SCREEN.blit(PLAY_TEXT, PLAY_RECT)
-        PLAY_AGAIN = Button(image=None, pos=(500, 450), 
+        PLAY_AGAIN = Button(image=None, pos=(500, 500), 
                             text_input="Yes", font=get_font(70), base_color="White", hovering_color="green")
-        QUIT = Button(image=None, pos=(950, 450), 
+        QUIT = Button(image=None, pos=(950, 500), 
                             text_input="No", font=get_font(70), base_color="White", hovering_color="red")
 
         PLAY_AGAIN.changeColor(PLAY_MOUSE_POS)
