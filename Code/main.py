@@ -43,6 +43,14 @@ class Level:  # Contain all the sprites + interactions
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "y":
                     Tile1((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "a":
+                    Tile2((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "b":
+                    Tile3((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "c":
+                    Tile4((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "d":
+                    Tile5((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "p":
                     self.player = Player((x, y), [self.visible_sprites], self.obstacle_sprites, self.win_sprites)
                 if col == "z":
@@ -78,13 +86,21 @@ class Level2:  # Contain all the sprites + interactions
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "y":
                     Tile1((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "a":
+                    Tile2((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "b":
+                    Tile3((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "c":
+                    Tile4((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "d":
+                    Tile5((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "p":
                     self.player2 = Player2(
                         (x, y), [self.visible_sprites], self.obstacle_sprites, self.win_sprites
                     )
                 if col == "z":
                     self.win_sprites = Key((x, y), [self.visible_sprites, self.win_sprites])
-           
+                    
     def run(self):
         # update and draw the game
         self.visible_sprites.custom_draw(self.player2)  # Display visible sprites
@@ -115,6 +131,14 @@ class Level3:  # Contain all the sprites + interactions
                     Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "y":
                     Tile1((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "a":
+                    Tile2((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "b":
+                    Tile3((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "c":
+                    Tile4((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == "d":
+                    Tile5((x, y), [self.visible_sprites, self.obstacle_sprites])
                 if col == "p":
                     self.player3 = Player3(
                         (x, y), [self.visible_sprites], self.obstacle_sprites, self.win_sprites
